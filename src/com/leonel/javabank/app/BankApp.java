@@ -1,0 +1,7 @@
+package com.leonel.javabank.app;
+
+public class BankApp {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}

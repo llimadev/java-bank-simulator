@@ -1,24 +1,20 @@
 package com.leonel.javabank.app;
 
-import com.leonel.javabank.model.User;
-import java.util.Scanner;
+import com.leonel.javabank.exception.AccountValidationException;
+import com.leonel.javabank.model.Account;
+import com.leonel.javabank.model.CheckingAccount;
+import com.leonel.javabank.util.ErrorLogger;
 
 public class BankApp {
     public static void main(String[] args) {
 
-        // Create scanner to read user input
-        Scanner input = new Scanner(System.in);
-
-        User user = new User();
-        // Set default username for demonstration
-        user.setName("Leonel Lima");
-
-        // Prompt user for CPF number and store input
-        System.out.print("Type your CPF number: ");
-        user.setCpf(input.nextLine());
-
-        // Display user information
-        System.out.println("Hello, " + user.getName());
-        System.out.println("Your CPF number is: " + user.getCpf());
+        try {
+            Account conta = new CheckingAccount("223456-0");
+            System.out.println(conta);
+        } catch (AccountValidationException e) {
+            System.err.println("Ops! It looks like we ran into a problem " +
+                    "while trying to create your account!" + e.getMessage());
+            ErrorLogger.log(e);
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.leonel.javabank.model;
 
 public abstract class Account {
-    protected String accountNumber;
+    protected final String accountNumber;
     protected double balance;
 
     public Account(String accountNumber) {
@@ -9,15 +9,13 @@ public abstract class Account {
         this.balance = 0.0;
     }
 
-    @Override
-    public String toString() {
-
-        if(accountNumber.startsWith("2")) {
-            return "The Savings Account number: " + accountNumber +
-                    ", has a balance of : " + balance;
-        } else {
-            return "The Checking Account number: " + accountNumber +
-                    ", has a balance of : " + balance;
-        }
+    public String getAccountNumber() {
+        return accountNumber;
     }
+    public double getBalance() {
+        return balance;
+    }
+
+    public abstract void deposit(double amount);
+    public abstract void withdraw(double amount);
 }

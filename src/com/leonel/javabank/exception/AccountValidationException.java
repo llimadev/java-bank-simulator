@@ -11,4 +11,8 @@ public class AccountValidationException extends IllegalArgumentException {
     public String getErrorCode() {
         return errorCode;
     }
+
+    public static String defaultValidationMessage () {
+        return "Ops! It looks like we ran into a problema while trying to create your account.\n";
+    }
 }

@@ -1,40 +1,24 @@
 package com.leonel.javabank.model;
 
 public class User {
-    private String name;
-    private String cpf;
-    private String email;
-    private String senha;
+    private final String name;
+    private final String id;
+    private final String email;
+    private final String password;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String newName) {
+    public User(String newName, String newId, String newEmail, String newPassword) {
         this.name = newName;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String newCpf) {
-        this.cpf = newCpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail (String newEmail) {
+        this.id = newId;
         this.email = newEmail;
+        this.password = newPassword;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String newSenha) {
-        this.senha = newSenha;
+    @Override
+    public String toString() {
+        return "USER" +
+                "\nName: " + name +
+                "\nID: " + id +
+                "\nE-mail: " + email +
+                "\nPassword: " + password;
     }
 }

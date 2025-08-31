@@ -1,6 +1,7 @@
 package com.leonel.javabank.model;
 
 import com.leonel.javabank.exception.AccountValidationException;
+import com.leonel.javabank.exception.TransactionValidationException;
 import com.leonel.javabank.util.ErrorCatalog;
 
 public class CheckingAccount extends Account {
@@ -10,10 +11,5 @@ public class CheckingAccount extends Account {
             throw new AccountValidationException("02658",
                     ErrorCatalog.getMessage("02658"));
         }
-    }
-
-    @Override
-    public void deposit(double amount) {
-        if (amount <= 0) thow new
     }
 }

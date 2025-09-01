@@ -12,4 +12,25 @@ public class CheckingAccount extends Account {
                     ErrorCatalog.getMessage("02658"));
         }
     }
+    @Override
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            throw new TransactionValidationException("20001",
+                    ErrorCatalog.getMessage("20001"));
+        }
+        balance += amount;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount <= 0) {
+            throw new TransactionValidationException("20002",
+                    ErrorCatalog.getMessage("20002"));
+        }
+        if (amount > balance) {
+            throw new TransactionValidationException("20003",
+                    ErrorCatalog.getMessage("20003"));
+        }
+        balance -= amount;
+    }
 }
